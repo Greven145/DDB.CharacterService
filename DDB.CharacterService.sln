@@ -5,6 +5,15 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDB.CharacterService", "DDB.CharacterService\DDB.CharacterService.csproj", "{70400919-A5E7-46B6-B163-7CA0F7F9E5DB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{0B9F360A-51E2-485C-B010-BDC0D5A76985}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{75245389-ECBE-4A5D-9B48-35022855DDB3}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDB.CharacterService.Tests", "DDB.CharacterService.Tests\DDB.CharacterService.Tests.csproj", "{2DFF37BE-4A5B-4286-8012-054A0EA898DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +24,16 @@ Global
 		{70400919-A5E7-46B6-B163-7CA0F7F9E5DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70400919-A5E7-46B6-B163-7CA0F7F9E5DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70400919-A5E7-46B6-B163-7CA0F7F9E5DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DFF37BE-4A5B-4286-8012-054A0EA898DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DFF37BE-4A5B-4286-8012-054A0EA898DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DFF37BE-4A5B-4286-8012-054A0EA898DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DFF37BE-4A5B-4286-8012-054A0EA898DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{75245389-ECBE-4A5D-9B48-35022855DDB3} = {0B9F360A-51E2-485C-B010-BDC0D5A76985}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BC8F0AA7-C370-4467-8F46-92F0DC4C463C}
