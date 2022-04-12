@@ -1,0 +1,33 @@
+﻿namespace DDB.CharacterService.v5;
+
+public record Action(
+    int ComponentId,
+    int ComponentTypeId,
+    string Id,
+    string EntityTypeId,
+    LimitedUse LimitedUse,
+    string Name,
+    string Description,
+    string Snippet,
+    int? AbilityModifierStatId,
+    string OnMissDescription,
+    string SaveFailDescription,
+    string SaveSuccessDescription,
+    int? SaveStatId,
+    object FixedSaveDc,
+    object AttackTypeRange,
+    int ActionType,
+    object AttackSubtype,
+    Dice Dice,
+    object Value,
+    int? DamageTypeId,
+    bool IsMartialArts,
+    bool IsProficient,
+    object SpellRangeType,
+    bool? DisplayAsAttack,
+    Range Range,
+    Activation Activation,
+    object NumberOfTargets,
+    object FixedToHit,
+    object Ammunition
+);

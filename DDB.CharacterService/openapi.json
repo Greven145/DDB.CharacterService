@@ -1,0 +1,6214 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Swagger specification",
+    "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {
+      "WeightSpeeds": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Normal": {
+            "$ref": "#/components/schemas/Normal"
+          },
+          "Encumbered": {},
+          "HeavilyEncumbered": {},
+          "PushDragLift": {},
+          "Override": {}
+        }
+      },
+      "Normal": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Walk": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Fly": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Burrow": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Swim": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Climb": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Range": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Origin": {
+            "type": "string"
+          },
+          "RangeValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "AoeType": {
+            "type": "string"
+          },
+          "AoeValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RangeInFeet": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LongRange": {},
+          "AoeSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "HasAoeSpecialDescription": {
+            "type": "boolean"
+          },
+          "MinimumRange": {}
+        }
+      },
+      "Source": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "SourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageNumber": {},
+          "SourceType": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Spell": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "OverrideSaveDc": {},
+          "LimitedUse": {
+            "$ref": "#/components/schemas/LimitedUse"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/SpellDefinition"
+          },
+          "DefinitionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Prepared": {
+            "type": "boolean"
+          },
+          "CountsAsKnownSpell": {
+            "type": "boolean"
+          },
+          "UsesSpellSlot": {
+            "type": "boolean"
+          },
+          "CastAtLevel": {},
+          "AlwaysPrepared": {
+            "type": "boolean"
+          },
+          "Restriction": {
+            "type": "string"
+          },
+          "SpellCastingAbilityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DisplayAsAttack": {},
+          "AdditionalDescription": {},
+          "CastOnlyAsRitual": {
+            "type": "boolean"
+          },
+          "RitualCastingType": {},
+          "Range": {
+            "$ref": "#/components/schemas/Range"
+          },
+          "Activation": {
+            "$ref": "#/components/schemas/Activation"
+          },
+          "BaseLevelAtWill": {
+            "type": "boolean"
+          },
+          "AtWillLimitedUseLevel": {},
+          "IsSignatureSpell": {},
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SpellListId": {}
+        }
+      },
+      "LimitedUse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "MaxUses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NumberUsed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ResetType": {
+            "$ref": "#/components/schemas/StringOrNumber"
+          },
+          "ResetTypeDescription": {
+            "type": "string"
+          },
+          "Level": {},
+          "Uses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {},
+          "StatModifierUsesId": {},
+          "MinNumberConsumed": {},
+          "MaxNumberConsumed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Operator": {},
+          "UseProficiencyBonus": {
+            "type": "boolean"
+          },
+          "ProficiencyBonusOperator": {},
+          "ResetDice": {}
+        }
+      },
+      "StringOrNumber": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OneOfBaseOfStringAndInteger"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "OneOfBaseOfStringAndInteger": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Value": {
+            "nullable": true
+          },
+          "Index": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsT0": {
+            "type": "boolean"
+          },
+          "IsT1": {
+            "type": "boolean"
+          },
+          "AsT0": {
+            "type": "string",
+            "nullable": true
+          },
+          "AsT1": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SpellDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "School": {
+            "type": "string"
+          },
+          "Duration": {
+            "$ref": "#/components/schemas/Duration"
+          },
+          "Activation": {
+            "$ref": "#/components/schemas/Activation"
+          },
+          "Range": {
+            "$ref": "#/components/schemas/Range"
+          },
+          "AsPartOfWeaponAttack": {
+            "type": "boolean"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Concentration": {
+            "type": "boolean"
+          },
+          "Ritual": {
+            "type": "boolean"
+          },
+          "RangeArea": {},
+          "DamageEffect": {},
+          "Components": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "ComponentsDescription": {
+            "type": "string"
+          },
+          "SaveDcAbilityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Healing": {},
+          "HealingDice": {
+            "type": "array",
+            "items": {}
+          },
+          "TempHpDice": {
+            "type": "array",
+            "items": {}
+          },
+          "AttackType": {},
+          "CanCastAtHigherLevel": {
+            "type": "boolean"
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "Version": {},
+          "SourceId": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RequiresSavingThrow": {
+            "type": "boolean"
+          },
+          "RequiresAttackRoll": {
+            "type": "boolean"
+          },
+          "AtHigherLevels": {
+            "$ref": "#/components/schemas/AtHigherLevels"
+          },
+          "Modifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Modifier"
+            }
+          },
+          "Conditions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Condition"
+            }
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "CastingTimeDescription": {
+            "type": "string"
+          },
+          "ScaleType": {
+            "type": "string"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            }
+          },
+          "SpellGroups": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "Duration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DurationInterval": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DurationUnit": {
+            "type": "string"
+          },
+          "DurationType": {
+            "type": "string"
+          }
+        }
+      },
+      "Activation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ActivationTime": {},
+          "ActivationType": {}
+        }
+      },
+      "AtHigherLevels": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ScaleType": {
+            "type": "string"
+          },
+          "HigherLevelDefinitions": {
+            "type": "array",
+            "items": {}
+          },
+          "AdditionalAttacks": {
+            "type": "array",
+            "items": {}
+          },
+          "AdditionalTargets": {
+            "type": "array",
+            "items": {}
+          },
+          "AreaOfEffect": {
+            "type": "array",
+            "items": {}
+          },
+          "Duration": {
+            "type": "array",
+            "items": {}
+          },
+          "Creatures": {
+            "type": "array",
+            "items": {}
+          },
+          "Special": {
+            "type": "array",
+            "items": {}
+          },
+          "Points": {
+            "type": "array",
+            "items": {}
+          },
+          "Range": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "Modifier": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "FixedValue": {},
+          "Id": {
+            "type": "string"
+          },
+          "EntityId": {},
+          "EntityTypeId": {},
+          "Type": {
+            "type": "string"
+          },
+          "SubType": {
+            "type": "string"
+          },
+          "Dice": {},
+          "Restriction": {
+            "type": "string"
+          },
+          "StatId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RequiresAttunement": {
+            "type": "boolean"
+          },
+          "Duration": {},
+          "FriendlyTypeName": {
+            "type": "string"
+          },
+          "FriendlySubtypeName": {
+            "type": "string"
+          },
+          "IsGranted": {
+            "type": "boolean"
+          },
+          "BonusTypes": {
+            "type": "array",
+            "items": {}
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "AvailableToMulticlass": {},
+          "ModifierTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ModifierSubTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Condition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ConditionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ConditionDuration": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DurationUnit": {
+            "type": "string"
+          },
+          "Exception": {
+            "type": "string"
+          }
+        }
+      },
+      "SpellRules": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "MultiClassSpellSlotDivisor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsRitualSpellCaster": {
+            "type": "boolean"
+          },
+          "LevelCantripsKnownMaxes": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "LevelSpellKnownMaxes": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "LevelSpellSlots": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          "MultiClassSpellSlotRounding": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Spells": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Spell"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "Race": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell"
+                }
+              },
+              "Class": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell"
+                }
+              },
+              "Background": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell"
+                }
+              },
+              "Item": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell"
+                }
+              },
+              "Feat": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell"
+                }
+              },
+              "SpellDefinition": {
+                "$ref": "#/components/schemas/SpellDefinition"
+              }
+            }
+          }
+        ]
+      },
+      "SpellSlot": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Used": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Available": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Stat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatBaseOfInteger"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StatBaseOfInteger": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "StatBase_1": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "EqualityContract": {
+            "type": "string"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Value": {
+            "$ref": "#/components/schemas/T"
+          }
+        }
+      },
+      "T": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ThemeColor": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ThemeColorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Color": {
+            "type": "string"
+          },
+          "BackgroundColor": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "RaceId": {},
+          "SubRaceId": {},
+          "ClassId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "DecorationKey": {
+            "type": "string"
+          }
+        }
+      },
+      "Traits": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "PersonalityTraits": {
+            "type": "string"
+          },
+          "Ideals": {
+            "type": "string"
+          },
+          "Bonds": {
+            "type": "string"
+          },
+          "Flaws": {
+            "type": "string"
+          },
+          "Appearance": {}
+        }
+      },
+      "WealthDice": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DiceCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DiceValue": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DiceMultiplier": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "FixedValue": {},
+          "DiceString": {
+            "type": "string"
+          }
+        }
+      },
+      "RacialTraitDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DefinitionKey": {
+            "type": "string"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "HideInBuilder": {
+            "type": "boolean"
+          },
+          "HideInSheet": {
+            "type": "boolean"
+          },
+          "Activation": {},
+          "SourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          },
+          "FeatureType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            }
+          },
+          "AffectedFeatureDefinitionKeys": {
+            "type": "array",
+            "items": {}
+          },
+          "IsCalledOut": {
+            "type": "boolean"
+          },
+          "EntityType": {
+            "type": "string"
+          },
+          "EntityID": {
+            "type": "string"
+          },
+          "EntityRaceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityRaceTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayConfiguration": {
+            "$ref": "#/components/schemas/DisplayConfiguration"
+          }
+        }
+      },
+      "DisplayConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "RACIALTRAIT": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ABILITYSCORE": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "LANGUAGE": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CLASSFEATURE": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "RacialTrait": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Definition": {
+            "$ref": "#/components/schemas/RacialTraitDefinition"
+          }
+        }
+      },
+      "RaceOptionDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Activation": {},
+          "SourceId": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "Race": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "IsSubRace": {
+            "type": "boolean"
+          },
+          "BaseRaceName": {
+            "type": "string"
+          },
+          "EntityRaceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityRaceTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FullName": {
+            "type": "string"
+          },
+          "BaseRaceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BaseRaceTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "AvatarUrl": {
+            "type": "string"
+          },
+          "LargeAvatarUrl": {
+            "type": "string"
+          },
+          "PortraitAvatarUrl": {
+            "type": "string"
+          },
+          "MoreDetailsUrl": {
+            "type": "string"
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "GroupIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "Type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SupportsSubrace": {},
+          "SubRaceShortName": {
+            "type": "string"
+          },
+          "BaseName": {
+            "type": "string"
+          },
+          "RacialTraits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RacialTrait"
+            }
+          },
+          "WeightSpeeds": {
+            "$ref": "#/components/schemas/WeightSpeeds"
+          },
+          "FeatIds": {
+            "type": "array",
+            "items": {}
+          },
+          "Size": {},
+          "SizeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            }
+          }
+        }
+      },
+      "Property": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Notes": {
+            "type": "string"
+          }
+        }
+      },
+      "PrerequisiteMapping": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Type": {
+            "type": "string"
+          },
+          "SubType": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FriendlyTypeName": {
+            "type": "string"
+          },
+          "FriendlySubTypeName": {
+            "type": "string"
+          }
+        }
+      },
+      "Prerequisite": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Description": {
+            "type": "string"
+          },
+          "PrerequisiteMappings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrerequisiteMapping"
+            }
+          }
+        }
+      },
+      "Preferences": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "UseHomebrewContent": {
+            "type": "boolean"
+          },
+          "ProgressionType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EncumbranceType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IgnoreCoinWeight": {
+            "type": "boolean"
+          },
+          "HitPointType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ShowUnarmedStrike": {
+            "type": "boolean"
+          },
+          "ShowScaledSpells": {
+            "type": "boolean"
+          },
+          "PrimarySense": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PrimaryMovement": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PrivacyType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SharingType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AbilityScoreDisplayType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EnforceFeatRules": {
+            "type": "boolean"
+          },
+          "EnforceMulticlassRules": {
+            "type": "boolean"
+          },
+          "EnableOptionalClassFeatures": {
+            "type": "boolean"
+          },
+          "EnableOptionalOrigins": {
+            "type": "boolean"
+          },
+          "EnableDarkMode": {
+            "type": "boolean"
+          },
+          "EnableContainerCurrency": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PlayerOptions": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Race": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option"
+            }
+          },
+          "Class": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option"
+            }
+          },
+          "Background": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option"
+            }
+          },
+          "Item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option"
+            }
+          },
+          "Feat": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option"
+            }
+          }
+        }
+      },
+      "Option": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/RaceOptionDefinition"
+          }
+        }
+      },
+      "PlayerModifiers": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Modifier"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "Die": {
+                "$ref": "#/components/schemas/Die"
+              },
+              "Count": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "DurationUnit": {},
+              "UsePrimaryStat": {
+                "type": "boolean"
+              },
+              "AtHigherLevels": {
+                "$ref": "#/components/schemas/AtHigherLevels"
+              },
+              "Race": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier"
+                }
+              },
+              "Class": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier"
+                }
+              },
+              "Background": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier"
+                }
+              },
+              "Item": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier"
+                }
+              },
+              "Feat": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Die": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DiceCount": {},
+          "DiceValue": {},
+          "DiceMultiplier": {},
+          "FixedValue": {},
+          "DiceString": {}
+        }
+      },
+      "PersonalityTrait": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "DiceRoll": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "OptionalStat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatBaseOfNullableInteger"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StatBaseOfNullableInteger": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "OptionalOrigin": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "RacialTraitId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AffectedRacialTraitId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RacialTraitDefinitionKey": {
+            "type": "string"
+          },
+          "AffectedRacialTraitDefinitionKey": {
+            "type": "string"
+          }
+        }
+      },
+      "Notes": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Allies": {},
+          "PersonalPossessions": {
+            "type": "string"
+          },
+          "OtherHoldings": {},
+          "Organizations": {},
+          "Enemies": {},
+          "Backstory": {},
+          "OtherNotes": {}
+        }
+      },
+      "LevelScale": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Dice": {
+            "$ref": "#/components/schemas/Dice"
+          },
+          "FixedValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "Dice": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DiceCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DiceValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DiceMultiplier": {},
+          "FixedValue": {},
+          "DiceString": {
+            "type": "string"
+          }
+        }
+      },
+      "ISourceAggregator_1": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "Background": {
+            "$ref": "#/components/schemas/T"
+          },
+          "Class": {
+            "$ref": "#/components/schemas/T"
+          },
+          "Feat": {
+            "$ref": "#/components/schemas/T"
+          },
+          "Item": {
+            "$ref": "#/components/schemas/T"
+          },
+          "Race": {
+            "$ref": "#/components/schemas/T"
+          }
+        }
+      },
+      "InventoryDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BaseTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CanEquip": {
+            "type": "boolean"
+          },
+          "Magic": {
+            "type": "boolean"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "WeightMultiplier": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "Capacity": {
+            "type": "string"
+          },
+          "CapacityWeight": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "Type": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "CanAttune": {
+            "type": "boolean"
+          },
+          "AttunementDescription": {
+            "type": "string"
+          },
+          "Rarity": {
+            "type": "string"
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "Version": {},
+          "SourceId": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Stackable": {
+            "type": "boolean"
+          },
+          "BundleSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AvatarUrl": {},
+          "LargeAvatarUrl": {},
+          "FilterType": {
+            "type": "string"
+          },
+          "Cost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "IsPack": {
+            "type": "boolean"
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "GrantedModifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrantedModifier"
+            }
+          },
+          "SubType": {
+            "type": "string"
+          },
+          "IsConsumable": {
+            "type": "boolean"
+          },
+          "WeaponBehaviors": {
+            "type": "array",
+            "items": {}
+          },
+          "BaseItemId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "BaseArmorName": {
+            "type": "string"
+          },
+          "StrengthRequirement": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ArmorClass": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "StealthCheck": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Damage": {
+            "$ref": "#/components/schemas/Damage"
+          },
+          "DamageType": {
+            "type": "string"
+          },
+          "FixedDamage": {},
+          "Properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            }
+          },
+          "AttackType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CategoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Range": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LongRange": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "IsMonkWeapon": {
+            "type": "boolean"
+          },
+          "LevelInfusionGranted": {},
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            }
+          },
+          "ArmorTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "GearTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "GroupedId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CanBeAddedToInventory": {
+            "type": "boolean"
+          },
+          "IsContainer": {
+            "type": "boolean"
+          },
+          "IsCustomItem": {
+            "type": "boolean"
+          }
+        }
+      },
+      "GrantedModifier": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "FixedValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string"
+          },
+          "EntityId": {},
+          "EntityTypeId": {},
+          "Type": {
+            "type": "string"
+          },
+          "SubType": {
+            "type": "string"
+          },
+          "Dice": {},
+          "Restriction": {
+            "type": "string"
+          },
+          "StatId": {},
+          "RequiresAttunement": {
+            "type": "boolean"
+          },
+          "Duration": {},
+          "FriendlyTypeName": {
+            "type": "string"
+          },
+          "FriendlySubtypeName": {
+            "type": "string"
+          },
+          "IsGranted": {
+            "type": "boolean"
+          },
+          "BonusTypes": {
+            "type": "array",
+            "items": {}
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "AvailableToMulticlass": {
+            "type": "boolean"
+          },
+          "ModifierTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ModifierSubTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Damage": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DiceCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DiceValue": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DiceMultiplier": {},
+          "FixedValue": {},
+          "DiceString": {
+            "type": "string"
+          }
+        }
+      },
+      "Inventory": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/InventoryDefinition"
+          },
+          "DefinitionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DefinitionTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayAsAttack": {},
+          "Quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsAttuned": {
+            "type": "boolean"
+          },
+          "Equipped": {
+            "type": "boolean"
+          },
+          "EquippedEntityTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "EquippedEntityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ChargesUsed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "LimitedUse": {
+            "$ref": "#/components/schemas/LimitedUse"
+          },
+          "ContainerEntityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ContainerEntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ContainerDefinitionKey": {
+            "type": "string"
+          },
+          "Currency": {}
+        }
+      },
+      "HigherLevelDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Level": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "TypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Dice": {},
+          "Value": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Details": {
+            "type": "string"
+          }
+        }
+      },
+      "FeatDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Activation": {
+            "$ref": "#/components/schemas/Activation"
+          },
+          "SourceId": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "Prerequisites": {
+            "type": "array",
+            "items": {}
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            }
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "Feat": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/FeatDefinition"
+          },
+          "DefinitionId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "DefaultBackdrop": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "BackdropAvatarUrl": {
+            "type": "string"
+          },
+          "SmallBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "LargeBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "ThumbnailBackdropAvatarUrl": {
+            "type": "string"
+          }
+        }
+      },
+      "Decorations": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "AvatarUrl": {
+            "type": "string"
+          },
+          "FrameAvatarUrl": {
+            "type": "string"
+          },
+          "BackdropAvatarUrl": {
+            "type": "string"
+          },
+          "SmallBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "LargeBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "ThumbnailBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "DefaultBackdrop": {
+            "$ref": "#/components/schemas/DefaultBackdrop"
+          },
+          "AvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "PortraitDecorationKey": {},
+          "FrameAvatarDecorationKey": {
+            "type": "string"
+          },
+          "FrameAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "BackdropAvatarDecorationKey": {
+            "type": "string"
+          },
+          "BackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SmallBackdropAvatarDecorationKey": {
+            "type": "string"
+          },
+          "SmallBackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LargeBackdropAvatarDecorationKey": {
+            "type": "string"
+          },
+          "LargeBackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ThumbnailBackdropAvatarDecorationKey": {
+            "type": "string"
+          },
+          "ThumbnailBackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ThemeColor": {
+            "$ref": "#/components/schemas/ThemeColor"
+          }
+        }
+      },
+      "DeathSaves": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "FailCount": {},
+          "SuccessCount": {},
+          "IsStabilized": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CustomBackground": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {},
+          "FeaturesBackground": {
+            "$ref": "#/components/schemas/BackgroundDefinition"
+          },
+          "CharacteristicsBackground": {
+            "$ref": "#/components/schemas/BackgroundDefinition"
+          },
+          "FeaturesBackgroundDefinitionId": {},
+          "CharacteristicsBackgroundDefinitionId": {},
+          "BackgroundType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "BackgroundDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "ShortDescription": {
+            "type": "string"
+          },
+          "SkillProficienciesDescription": {
+            "type": "string"
+          },
+          "ToolProficienciesDescription": {
+            "type": "string"
+          },
+          "LanguagesDescription": {
+            "type": "string"
+          },
+          "EquipmentDescription": {
+            "type": "string"
+          },
+          "FeatureName": {
+            "type": "string"
+          },
+          "FeatureDescription": {
+            "type": "string"
+          },
+          "AvatarUrl": {},
+          "LargeAvatarUrl": {},
+          "SuggestedCharacteristicsDescription": {
+            "type": "string"
+          },
+          "SuggestedProficiencies": {},
+          "SuggestedLanguages": {},
+          "Organization": {},
+          "ContractsDescription": {
+            "type": "string"
+          },
+          "SpellsPreDescription": {
+            "type": "string"
+          },
+          "SpellsPostDescription": {
+            "type": "string"
+          },
+          "PersonalityTraits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonalityTrait"
+            }
+          },
+          "Ideals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonalityTrait"
+            }
+          },
+          "Bonds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonalityTrait"
+            }
+          },
+          "Flaws": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonalityTrait"
+            }
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            }
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "Currencies": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Cp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Gp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Ep": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Pp": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Configuration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "StartingEquipmentType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "AbilityScoreType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ShowHelpText": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ClassSpell": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CharacterClassId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Spells": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Spell"
+            }
+          }
+        }
+      },
+      "ClassOptionDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Activation": {},
+          "SourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "ClassOption": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/ClassOptionDefinition"
+          }
+        }
+      },
+      "ClassFeatureDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DefinitionKey": {
+            "type": "string"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Activation": {},
+          "MultiClassDescription": {
+            "type": "string"
+          },
+          "RequiredLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsSubClassFeature": {
+            "type": "boolean"
+          },
+          "LimitedUse": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LimitedUse"
+            }
+          },
+          "HideInBuilder": {
+            "type": "boolean"
+          },
+          "HideInSheet": {
+            "type": "boolean"
+          },
+          "SourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "LevelScales": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LevelScale"
+            }
+          },
+          "InfusionRules": {
+            "type": "array",
+            "items": {}
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          },
+          "ClassId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FeatureType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            }
+          },
+          "AffectedFeatureDefinitionKeys": {
+            "type": "array",
+            "items": {}
+          },
+          "EntityType": {
+            "type": "string"
+          },
+          "EntityID": {
+            "type": "string"
+          }
+        }
+      },
+      "ClassFeature": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Prerequisite": {},
+          "Description": {
+            "type": "string"
+          },
+          "RequiredLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/ClassFeatureDefinition"
+          },
+          "LevelScale": {
+            "$ref": "#/components/schemas/LevelScale"
+          }
+        }
+      },
+      "ClassDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "EquipmentDescription": {
+            "type": "string"
+          },
+          "ParentClassId": {},
+          "AvatarUrl": {
+            "type": "string"
+          },
+          "LargeAvatarUrl": {
+            "type": "string"
+          },
+          "PortraitAvatarUrl": {
+            "type": "string"
+          },
+          "MoreDetailsUrl": {
+            "type": "string"
+          },
+          "SpellCastingAbilityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SourceId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "HitDice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            }
+          },
+          "ClassFeatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClassFeature"
+            }
+          },
+          "WealthDice": {
+            "$ref": "#/components/schemas/WealthDice"
+          },
+          "CanCastSpells": {
+            "type": "boolean"
+          },
+          "KnowsAllSpells": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "SpellPrepareType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SpellContainerName": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SubclassDefinition": {
+            "$ref": "#/components/schemas/ClassDefinition"
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "PrimaryAbilities": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "SpellRules": {
+            "$ref": "#/components/schemas/SpellRules"
+          },
+          "Prerequisites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Prerequisite"
+            }
+          }
+        }
+      },
+      "Class": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsStartingClass": {
+            "type": "boolean"
+          },
+          "HitDiceUsed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DefinitionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SubclassDefinitionId": {},
+          "Definition": {
+            "$ref": "#/components/schemas/ClassDefinition"
+          },
+          "SubclassDefinition": {
+            "$ref": "#/components/schemas/ClassDefinition"
+          },
+          "ClassFeatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClassFeature"
+            }
+          }
+        }
+      },
+      "Choices": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Race": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice"
+            }
+          },
+          "Class": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice"
+            }
+          },
+          "Background": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice"
+            }
+          },
+          "Item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice"
+            }
+          },
+          "Feat": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice"
+            }
+          },
+          "ChoiceDefinitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice"
+            }
+          }
+        }
+      },
+      "Choice": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Id": {
+            "type": "string"
+          },
+          "ParentChoiceId": {
+            "type": "string"
+          },
+          "Type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SubType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "OptionValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Label": {
+            "type": "string"
+          },
+          "IsOptional": {
+            "type": "boolean"
+          },
+          "IsInfinite": {
+            "type": "boolean"
+          },
+          "DefaultSubtypes": {
+            "type": "array",
+            "items": {}
+          },
+          "DisplayOrder": {},
+          "Options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChoiceOption"
+            }
+          },
+          "OptionIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "ChoiceOption": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Label": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      },
+      "CharacterValue": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "TypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Value": {
+            "type": "string"
+          },
+          "Notes": {},
+          "ValueId": {
+            "type": "string"
+          },
+          "ValueTypeId": {
+            "type": "string"
+          },
+          "ContextId": {},
+          "ContextTypeId": {}
+        }
+      },
+      "CharacterResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Message": {
+            "type": "string"
+          },
+          "Data": {
+            "$ref": "#/components/schemas/Character"
+          },
+          "Pagination": {}
+        }
+      },
+      "Character": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "UserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Username": {
+            "type": "string"
+          },
+          "IsAssignedToPlayer": {
+            "type": "boolean"
+          },
+          "ReadonlyUrl": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "SocialName": {},
+          "Gender": {
+            "type": "string"
+          },
+          "Faith": {
+            "type": "string"
+          },
+          "Age": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Hair": {
+            "type": "string"
+          },
+          "Eyes": {
+            "type": "string"
+          },
+          "Skin": {
+            "type": "string"
+          },
+          "Height": {
+            "type": "string"
+          },
+          "Weight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Inspiration": {
+            "type": "boolean"
+          },
+          "BaseHitPoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BonusHitPoints": {},
+          "OverrideHitPoints": {},
+          "RemovedHitPoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TemporaryHitPoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CurrentXp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AlignmentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LifestyleId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Stats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Stat"
+            }
+          },
+          "BonusStats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OptionalStat"
+            }
+          },
+          "OverrideStats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OptionalStat"
+            }
+          },
+          "Background": {
+            "$ref": "#/components/schemas/Background"
+          },
+          "Race": {
+            "$ref": "#/components/schemas/Race"
+          },
+          "RaceDefinitionId": {},
+          "RaceDefinitionTypeId": {},
+          "Notes": {
+            "$ref": "#/components/schemas/Notes"
+          },
+          "Traits": {
+            "$ref": "#/components/schemas/Traits"
+          },
+          "Preferences": {
+            "$ref": "#/components/schemas/Preferences"
+          },
+          "Configuration": {
+            "$ref": "#/components/schemas/Configuration"
+          },
+          "Lifestyle": {},
+          "Inventory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Inventory"
+            }
+          },
+          "Currencies": {
+            "$ref": "#/components/schemas/Currencies"
+          },
+          "Classes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Class"
+            }
+          },
+          "Feats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Feat"
+            }
+          },
+          "CustomDefenseAdjustments": {
+            "type": "array",
+            "items": {}
+          },
+          "CustomSenses": {
+            "type": "array",
+            "items": {}
+          },
+          "CustomSpeeds": {
+            "type": "array",
+            "items": {}
+          },
+          "CustomProficiencies": {
+            "type": "array",
+            "items": {}
+          },
+          "CustomActions": {
+            "type": "array",
+            "items": {}
+          },
+          "CharacterValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CharacterValue"
+            }
+          },
+          "Conditions": {
+            "type": "array",
+            "items": {}
+          },
+          "DeathSaves": {
+            "$ref": "#/components/schemas/DeathSaves"
+          },
+          "AdjustmentXp": {},
+          "SpellSlots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpellSlot"
+            }
+          },
+          "PactMagic": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpellSlot"
+            }
+          },
+          "ActiveSourceCategories": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "Spells": {
+            "$ref": "#/components/schemas/Spells"
+          },
+          "Options": {
+            "$ref": "#/components/schemas/PlayerOptions"
+          },
+          "Choices": {
+            "$ref": "#/components/schemas/Choices"
+          },
+          "Actions": {
+            "$ref": "#/components/schemas/Actions"
+          },
+          "Modifiers": {
+            "$ref": "#/components/schemas/PlayerModifiers"
+          },
+          "ClassSpells": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClassSpell"
+            }
+          },
+          "CustomItems": {
+            "type": "array",
+            "items": {}
+          },
+          "Campaign": {
+            "$ref": "#/components/schemas/Campaign"
+          },
+          "Creatures": {
+            "type": "array",
+            "items": {}
+          },
+          "OptionalOrigins": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OptionalOrigin"
+            }
+          },
+          "OptionalClassFeatures": {
+            "type": "array",
+            "items": {}
+          },
+          "DateModified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ProvidedFrom": {
+            "type": "string"
+          }
+        }
+      },
+      "Background": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "HasCustomBackground": {
+            "type": "boolean"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/BackgroundDefinition"
+          },
+          "DefinitionId": {},
+          "CustomBackground": {
+            "$ref": "#/components/schemas/CustomBackground"
+          }
+        }
+      },
+      "Actions": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Race": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            }
+          },
+          "Class": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            }
+          },
+          "Background": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            }
+          },
+          "Item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            }
+          },
+          "Feat": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            }
+          }
+        }
+      },
+      "Action": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Id": {
+            "type": "string"
+          },
+          "EntityTypeId": {
+            "type": "string"
+          },
+          "LimitedUse": {
+            "$ref": "#/components/schemas/LimitedUse"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "AbilityModifierStatId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "OnMissDescription": {
+            "type": "string"
+          },
+          "SaveFailDescription": {
+            "type": "string"
+          },
+          "SaveSuccessDescription": {
+            "type": "string"
+          },
+          "SaveStatId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "FixedSaveDc": {},
+          "AttackTypeRange": {},
+          "ActionType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AttackSubtype": {},
+          "Dice": {
+            "$ref": "#/components/schemas/Dice"
+          },
+          "Value": {},
+          "DamageTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "IsMartialArts": {
+            "type": "boolean"
+          },
+          "IsProficient": {
+            "type": "boolean"
+          },
+          "SpellRangeType": {},
+          "DisplayAsAttack": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Range": {
+            "$ref": "#/components/schemas/Range"
+          },
+          "Activation": {
+            "$ref": "#/components/schemas/Activation"
+          },
+          "NumberOfTargets": {},
+          "FixedToHit": {},
+          "Ammunition": {}
+        }
+      },
+      "Campaign": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Link": {
+            "type": "string"
+          },
+          "PublicNotes": {
+            "type": "string"
+          },
+          "DmUserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DmUsername": {
+            "type": "string"
+          },
+          "Characters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Character"
+            }
+          }
+        }
+      },
+      "CampaignCharacter": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "UserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Username": {
+            "type": "string"
+          },
+          "CharacterId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CharacterName": {
+            "type": "string"
+          },
+          "CharacterUrl": {
+            "type": "string"
+          },
+          "AvatarUrl": {
+            "type": "string"
+          },
+          "PrivacyType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CampaignId": {},
+          "IsAssigned": {
+            "type": "boolean"
+          }
+        }
+      },
+      "WeightSpeeds2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Normal": {
+            "$ref": "#/components/schemas/Normal2"
+          },
+          "Encumbered": {},
+          "HeavilyEncumbered": {},
+          "PushDragLift": {},
+          "Override": {}
+        }
+      },
+      "Normal2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Walk": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Fly": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Burrow": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Swim": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Climb": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "WealthDice2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DiceCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DiceValue": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DiceMultiplier": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "FixedValue": {},
+          "DiceString": {
+            "type": "string"
+          }
+        }
+      },
+      "Traits2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "PersonalityTraits": {
+            "type": "string"
+          },
+          "Ideals": {
+            "type": "string"
+          },
+          "Bonds": {
+            "type": "string"
+          },
+          "Flaws": {
+            "type": "string"
+          },
+          "Appearance": {}
+        }
+      },
+      "ThemeColor2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ThemeColorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Color": {
+            "type": "string"
+          },
+          "BackgroundColor": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "RaceId": {},
+          "SubRaceId": {},
+          "ClassId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "DecorationKey": {
+            "type": "string"
+          }
+        }
+      },
+      "Stat2": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatBaseOfInteger2"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StatBaseOfInteger2": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SpellSlot2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Used": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Available": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Spells2": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Spell2"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "Race": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell2"
+                }
+              },
+              "Class": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell2"
+                }
+              },
+              "Background": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell2"
+                }
+              },
+              "Item": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell2"
+                }
+              },
+              "Feat": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Spell2"
+                }
+              },
+              "SpellDefinition": {
+                "$ref": "#/components/schemas/SpellDefinition2"
+              }
+            }
+          }
+        ]
+      },
+      "Spell2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "OverrideSaveDc": {},
+          "LimitedUse": {
+            "$ref": "#/components/schemas/LimitedUse2"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/SpellDefinition2"
+          },
+          "DefinitionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Prepared": {
+            "type": "boolean"
+          },
+          "CountsAsKnownSpell": {
+            "type": "boolean"
+          },
+          "UsesSpellSlot": {
+            "type": "boolean"
+          },
+          "CastAtLevel": {},
+          "AlwaysPrepared": {
+            "type": "boolean"
+          },
+          "Restriction": {
+            "type": "string"
+          },
+          "SpellCastingAbilityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DisplayAsAttack": {},
+          "AdditionalDescription": {},
+          "CastOnlyAsRitual": {
+            "type": "boolean"
+          },
+          "RitualCastingType": {},
+          "Range": {
+            "$ref": "#/components/schemas/Range2"
+          },
+          "Activation": {
+            "$ref": "#/components/schemas/Activation2"
+          },
+          "BaseLevelAtWill": {
+            "type": "boolean"
+          },
+          "AtWillLimitedUseLevel": {},
+          "IsSignatureSpell": {},
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SpellListId": {}
+        }
+      },
+      "LimitedUse2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "MaxUses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NumberUsed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ResetType": {
+            "$ref": "#/components/schemas/StringOrNumber"
+          },
+          "ResetTypeDescription": {
+            "type": "string"
+          },
+          "Level": {},
+          "Uses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {},
+          "StatModifierUsesId": {},
+          "MinNumberConsumed": {},
+          "MaxNumberConsumed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Operator": {},
+          "UseProficiencyBonus": {
+            "type": "boolean"
+          },
+          "ProficiencyBonusOperator": {},
+          "ResetDice": {}
+        }
+      },
+      "SpellDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "School": {
+            "type": "string"
+          },
+          "Duration": {
+            "$ref": "#/components/schemas/Duration2"
+          },
+          "Activation": {
+            "$ref": "#/components/schemas/Activation2"
+          },
+          "Range": {
+            "$ref": "#/components/schemas/Range2"
+          },
+          "AsPartOfWeaponAttack": {
+            "type": "boolean"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Concentration": {
+            "type": "boolean"
+          },
+          "Ritual": {
+            "type": "boolean"
+          },
+          "RangeArea": {},
+          "DamageEffect": {},
+          "Components": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "ComponentsDescription": {
+            "type": "string"
+          },
+          "SaveDcAbilityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Healing": {},
+          "HealingDice": {
+            "type": "array",
+            "items": {}
+          },
+          "TempHpDice": {
+            "type": "array",
+            "items": {}
+          },
+          "AttackType": {},
+          "CanCastAtHigherLevel": {
+            "type": "boolean"
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "Version": {},
+          "SourceId": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RequiresSavingThrow": {
+            "type": "boolean"
+          },
+          "RequiresAttackRoll": {
+            "type": "boolean"
+          },
+          "AtHigherLevels": {
+            "$ref": "#/components/schemas/AtHigherLevels2"
+          },
+          "Modifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Modifier2"
+            }
+          },
+          "Conditions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Condition2"
+            }
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "CastingTimeDescription": {
+            "type": "string"
+          },
+          "ScaleType": {
+            "type": "string"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source2"
+            }
+          },
+          "SpellGroups": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "Duration2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DurationInterval": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DurationUnit": {
+            "type": "string"
+          },
+          "DurationType": {
+            "type": "string"
+          }
+        }
+      },
+      "Activation2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ActivationTime": {},
+          "ActivationType": {}
+        }
+      },
+      "Range2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Origin": {
+            "type": "string"
+          },
+          "RangeValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "AoeType": {
+            "type": "string"
+          },
+          "AoeValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RangeInFeet": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LongRange": {},
+          "AoeSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "HasAoeSpecialDescription": {
+            "type": "boolean"
+          },
+          "MinimumRange": {}
+        }
+      },
+      "AtHigherLevels2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ScaleType": {
+            "type": "string"
+          },
+          "HigherLevelDefinitions": {
+            "type": "array",
+            "items": {}
+          },
+          "AdditionalAttacks": {
+            "type": "array",
+            "items": {}
+          },
+          "AdditionalTargets": {
+            "type": "array",
+            "items": {}
+          },
+          "AreaOfEffect": {
+            "type": "array",
+            "items": {}
+          },
+          "Duration": {
+            "type": "array",
+            "items": {}
+          },
+          "Creatures": {
+            "type": "array",
+            "items": {}
+          },
+          "Special": {
+            "type": "array",
+            "items": {}
+          },
+          "Points": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "Modifier2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "FixedValue": {},
+          "Id": {
+            "type": "string"
+          },
+          "EntityId": {},
+          "EntityTypeId": {},
+          "Type": {
+            "type": "string"
+          },
+          "SubType": {
+            "type": "string"
+          },
+          "Dice": {},
+          "Restriction": {
+            "type": "string"
+          },
+          "StatId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RequiresAttunement": {
+            "type": "boolean"
+          },
+          "Duration": {},
+          "FriendlyTypeName": {
+            "type": "string"
+          },
+          "FriendlySubtypeName": {
+            "type": "string"
+          },
+          "IsGranted": {
+            "type": "boolean"
+          },
+          "BonusTypes": {
+            "type": "array",
+            "items": {}
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "AvailableToMulticlass": {},
+          "ModifierTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ModifierSubTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Condition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ConditionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ConditionDuration": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DurationUnit": {
+            "type": "string"
+          },
+          "Exception": {
+            "type": "string"
+          }
+        }
+      },
+      "Source2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "SourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageNumber": {},
+          "SourceType": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SpellRules2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "MultiClassSpellSlotDivisor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsRitualSpellCaster": {
+            "type": "boolean"
+          },
+          "LevelCantripsKnownMaxes": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "LevelSpellKnownMaxes": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "LevelSpellSlots": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          "MultiClassSpellSlotRounding": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "RacialTraitDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DefinitionKey": {
+            "type": "string"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "HideInBuilder": {
+            "type": "boolean"
+          },
+          "HideInSheet": {
+            "type": "boolean"
+          },
+          "Activation": {},
+          "SourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          },
+          "FeatureType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source2"
+            }
+          },
+          "AffectedFeatureDefinitionKeys": {
+            "type": "array",
+            "items": {}
+          },
+          "IsCalledOut": {
+            "type": "boolean"
+          },
+          "EntityType": {
+            "type": "string"
+          },
+          "EntityID": {
+            "type": "string"
+          },
+          "EntityRaceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityRaceTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayConfiguration": {
+            "$ref": "#/components/schemas/DisplayConfiguration2"
+          }
+        }
+      },
+      "DisplayConfiguration2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "RACIALTRAIT": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ABILITYSCORE": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "LANGUAGE": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CLASSFEATURE": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "RaceOptionDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Activation": {},
+          "SourceId": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "RacialTrait2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Definition": {
+            "$ref": "#/components/schemas/RacialTraitDefinition2"
+          }
+        }
+      },
+      "Race2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "IsSubRace": {
+            "type": "boolean"
+          },
+          "BaseRaceName": {
+            "type": "string"
+          },
+          "EntityRaceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityRaceTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FullName": {
+            "type": "string"
+          },
+          "BaseRaceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BaseRaceTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "AvatarUrl": {
+            "type": "string"
+          },
+          "LargeAvatarUrl": {
+            "type": "string"
+          },
+          "PortraitAvatarUrl": {
+            "type": "string"
+          },
+          "MoreDetailsUrl": {
+            "type": "string"
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "SourceIds": {
+            "type": "array",
+            "items": {}
+          },
+          "GroupIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "Type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SupportsSubrace": {},
+          "SubRaceShortName": {
+            "type": "string"
+          },
+          "BaseName": {
+            "type": "string"
+          },
+          "RacialTraits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RacialTrait2"
+            }
+          },
+          "WeightSpeeds": {
+            "$ref": "#/components/schemas/WeightSpeeds2"
+          },
+          "FeatIds": {
+            "type": "array",
+            "items": {}
+          },
+          "Size": {},
+          "SizeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source2"
+            }
+          }
+        }
+      },
+      "Property2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Notes": {
+            "type": "string"
+          }
+        }
+      },
+      "PrerequisiteMapping2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Type": {
+            "type": "string"
+          },
+          "SubType": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FriendlyTypeName": {
+            "type": "string"
+          },
+          "FriendlySubTypeName": {
+            "type": "string"
+          }
+        }
+      },
+      "Prerequisite2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Description": {
+            "type": "string"
+          },
+          "PrerequisiteMappings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrerequisiteMapping2"
+            }
+          }
+        }
+      },
+      "Preferences2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "UseHomebrewContent": {
+            "type": "boolean"
+          },
+          "ProgressionType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EncumbranceType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IgnoreCoinWeight": {
+            "type": "boolean"
+          },
+          "HitPointType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ShowUnarmedStrike": {
+            "type": "boolean"
+          },
+          "ShowScaledSpells": {
+            "type": "boolean"
+          },
+          "PrimarySense": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PrimaryMovement": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PrivacyType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SharingType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AbilityScoreDisplayType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EnforceFeatRules": {
+            "type": "boolean"
+          },
+          "EnforceMulticlassRules": {
+            "type": "boolean"
+          },
+          "EnableOptionalClassFeatures": {
+            "type": "boolean"
+          },
+          "EnableOptionalOrigins": {
+            "type": "boolean"
+          },
+          "EnableDarkMode": {
+            "type": "boolean"
+          },
+          "EnableContainerCurrency": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PlayerOptions2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Race": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option2"
+            }
+          },
+          "Class": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option2"
+            }
+          },
+          "Background": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option2"
+            }
+          },
+          "Item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option2"
+            }
+          },
+          "Feat": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Option2"
+            }
+          }
+        }
+      },
+      "Option2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/RaceOptionDefinition2"
+          }
+        }
+      },
+      "PlayerModifiers2": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Modifier2"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "Die": {
+                "$ref": "#/components/schemas/Die2"
+              },
+              "Count": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "DurationUnit": {},
+              "UsePrimaryStat": {
+                "type": "boolean"
+              },
+              "AtHigherLevels": {
+                "$ref": "#/components/schemas/AtHigherLevels2"
+              },
+              "Race": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier2"
+                }
+              },
+              "Class": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier2"
+                }
+              },
+              "Background": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier2"
+                }
+              },
+              "Item": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier2"
+                }
+              },
+              "Feat": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Modifier2"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Die2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DiceCount": {},
+          "DiceValue": {},
+          "DiceMultiplier": {},
+          "FixedValue": {},
+          "DiceString": {}
+        }
+      },
+      "PersonalityTrait2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "DiceRoll": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "OptionalStat2": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatBaseOfNullableInteger2"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StatBaseOfNullableInteger2": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "OptionalOrigin2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "RacialTraitId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AffectedRacialTraitId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RacialTraitDefinitionKey": {
+            "type": "string"
+          },
+          "AffectedRacialTraitDefinitionKey": {
+            "type": "string"
+          }
+        }
+      },
+      "Notes2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Allies": {},
+          "PersonalPossessions": {
+            "type": "string"
+          },
+          "OtherHoldings": {},
+          "Organizations": {},
+          "Enemies": {},
+          "Backstory": {},
+          "OtherNotes": {}
+        }
+      },
+      "LevelScale2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Dice": {
+            "$ref": "#/components/schemas/Dice2"
+          },
+          "FixedValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "Dice2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DiceCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DiceValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DiceMultiplier": {},
+          "FixedValue": {},
+          "DiceString": {
+            "type": "string"
+          }
+        }
+      },
+      "Inventory2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/InventoryDefinition2"
+          },
+          "DefinitionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DefinitionTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayAsAttack": {},
+          "Quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsAttuned": {
+            "type": "boolean"
+          },
+          "Equipped": {
+            "type": "boolean"
+          },
+          "EquippedEntityTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "EquippedEntityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ChargesUsed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "LimitedUse": {
+            "$ref": "#/components/schemas/LimitedUse2"
+          },
+          "ContainerEntityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ContainerEntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ContainerDefinitionKey": {
+            "type": "string"
+          },
+          "Currency": {}
+        }
+      },
+      "InventoryDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BaseTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CanEquip": {
+            "type": "boolean"
+          },
+          "Magic": {
+            "type": "boolean"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "WeightMultiplier": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "Capacity": {
+            "type": "string"
+          },
+          "CapacityWeight": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "Type": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "CanAttune": {
+            "type": "boolean"
+          },
+          "AttunementDescription": {
+            "type": "string"
+          },
+          "Rarity": {
+            "type": "string"
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "Version": {},
+          "SourceId": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Stackable": {
+            "type": "boolean"
+          },
+          "BundleSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AvatarUrl": {},
+          "LargeAvatarUrl": {},
+          "FilterType": {
+            "type": "string"
+          },
+          "Cost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "IsPack": {
+            "type": "boolean"
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "GrantedModifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrantedModifier2"
+            }
+          },
+          "SubType": {
+            "type": "string"
+          },
+          "IsConsumable": {
+            "type": "boolean"
+          },
+          "WeaponBehaviors": {
+            "type": "array",
+            "items": {}
+          },
+          "BaseItemId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "BaseArmorName": {
+            "type": "string"
+          },
+          "StrengthRequirement": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ArmorClass": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "StealthCheck": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Damage": {
+            "$ref": "#/components/schemas/Damage2"
+          },
+          "DamageType": {
+            "type": "string"
+          },
+          "FixedDamage": {},
+          "Properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property2"
+            }
+          },
+          "AttackType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CategoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Range": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LongRange": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "IsMonkWeapon": {
+            "type": "boolean"
+          },
+          "LevelInfusionGranted": {},
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source2"
+            }
+          },
+          "ArmorTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "GearTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "GroupedId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CanBeAddedToInventory": {
+            "type": "boolean"
+          },
+          "IsContainer": {
+            "type": "boolean"
+          },
+          "IsCustomItem": {
+            "type": "boolean"
+          }
+        }
+      },
+      "GrantedModifier2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "FixedValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string"
+          },
+          "EntityId": {},
+          "EntityTypeId": {},
+          "Type": {
+            "type": "string"
+          },
+          "SubType": {
+            "type": "string"
+          },
+          "Dice": {},
+          "Restriction": {
+            "type": "string"
+          },
+          "StatId": {},
+          "RequiresAttunement": {
+            "type": "boolean"
+          },
+          "Duration": {},
+          "FriendlyTypeName": {
+            "type": "string"
+          },
+          "FriendlySubtypeName": {
+            "type": "string"
+          },
+          "IsGranted": {
+            "type": "boolean"
+          },
+          "BonusTypes": {
+            "type": "array",
+            "items": {}
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "AvailableToMulticlass": {
+            "type": "boolean"
+          },
+          "ModifierTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ModifierSubTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Damage2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "DiceCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DiceValue": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DiceMultiplier": {},
+          "FixedValue": {},
+          "DiceString": {
+            "type": "string"
+          }
+        }
+      },
+      "HigherLevelDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Level": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "TypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Dice": {},
+          "Value": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Details": {
+            "type": "string"
+          }
+        }
+      },
+      "FeatDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Activation": {
+            "$ref": "#/components/schemas/Activation2"
+          },
+          "SourceId": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "Prerequisites": {
+            "type": "array",
+            "items": {}
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source2"
+            }
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "Feat2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/FeatDefinition2"
+          },
+          "DefinitionId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "DefaultBackdrop2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "BackdropAvatarUrl": {
+            "type": "string"
+          },
+          "SmallBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "LargeBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "ThumbnailBackdropAvatarUrl": {
+            "type": "string"
+          }
+        }
+      },
+      "Decorations2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "AvatarUrl": {
+            "type": "string"
+          },
+          "FrameAvatarUrl": {
+            "type": "string"
+          },
+          "BackdropAvatarUrl": {
+            "type": "string"
+          },
+          "SmallBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "LargeBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "ThumbnailBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "DefaultBackdrop": {
+            "$ref": "#/components/schemas/DefaultBackdrop2"
+          },
+          "AvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "PortraitDecorationKey": {},
+          "FrameAvatarDecorationKey": {
+            "type": "string"
+          },
+          "FrameAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "BackdropAvatarDecorationKey": {
+            "type": "string"
+          },
+          "BackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SmallBackdropAvatarDecorationKey": {
+            "type": "string"
+          },
+          "SmallBackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LargeBackdropAvatarDecorationKey": {
+            "type": "string"
+          },
+          "LargeBackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ThumbnailBackdropAvatarDecorationKey": {
+            "type": "string"
+          },
+          "ThumbnailBackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ThemeColor": {
+            "$ref": "#/components/schemas/ThemeColor2"
+          }
+        }
+      },
+      "DeathSaves2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "FailCount": {},
+          "SuccessCount": {},
+          "IsStabilized": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CustomBackground2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {},
+          "FeaturesBackground": {
+            "$ref": "#/components/schemas/BackgroundDefinition2"
+          },
+          "CharacteristicsBackground": {
+            "$ref": "#/components/schemas/BackgroundDefinition2"
+          },
+          "FeaturesBackgroundDefinitionId": {},
+          "CharacteristicsBackgroundDefinitionId": {},
+          "BackgroundType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "BackgroundDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "ShortDescription": {
+            "type": "string"
+          },
+          "SkillProficienciesDescription": {
+            "type": "string"
+          },
+          "ToolProficienciesDescription": {
+            "type": "string"
+          },
+          "LanguagesDescription": {
+            "type": "string"
+          },
+          "EquipmentDescription": {
+            "type": "string"
+          },
+          "FeatureName": {
+            "type": "string"
+          },
+          "FeatureDescription": {
+            "type": "string"
+          },
+          "AvatarUrl": {},
+          "LargeAvatarUrl": {},
+          "SuggestedCharacteristicsDescription": {
+            "type": "string"
+          },
+          "SuggestedProficiencies": {},
+          "SuggestedLanguages": {},
+          "Organization": {},
+          "ContractsDescription": {
+            "type": "string"
+          },
+          "SpellsPreDescription": {
+            "type": "string"
+          },
+          "SpellsPostDescription": {
+            "type": "string"
+          },
+          "PersonalityTraits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonalityTrait2"
+            }
+          },
+          "Ideals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonalityTrait2"
+            }
+          },
+          "Bonds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonalityTrait2"
+            }
+          },
+          "Flaws": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonalityTrait2"
+            }
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source2"
+            }
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "Currencies2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Cp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Gp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Ep": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Pp": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Configuration2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "StartingEquipmentType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "AbilityScoreType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ShowHelpText": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ClassSpell2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CharacterClassId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Spells": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Spell2"
+            }
+          }
+        }
+      },
+      "ClassOptionDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Activation": {},
+          "SourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "ClassOption2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/ClassOptionDefinition2"
+          }
+        }
+      },
+      "ClassFeatureDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DefinitionKey": {
+            "type": "string"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "Activation": {},
+          "MultiClassDescription": {
+            "type": "string"
+          },
+          "RequiredLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsSubClassFeature": {
+            "type": "boolean"
+          },
+          "LimitedUse": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LimitedUse2"
+            }
+          },
+          "HideInBuilder": {
+            "type": "boolean"
+          },
+          "HideInSheet": {
+            "type": "boolean"
+          },
+          "SourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CreatureRules": {
+            "type": "array",
+            "items": {}
+          },
+          "LevelScales": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LevelScale2"
+            }
+          },
+          "InfusionRules": {
+            "type": "array",
+            "items": {}
+          },
+          "SpellListIds": {
+            "type": "array",
+            "items": {}
+          },
+          "ClassId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FeatureType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source2"
+            }
+          },
+          "AffectedFeatureDefinitionKeys": {
+            "type": "array",
+            "items": {}
+          },
+          "EntityType": {
+            "type": "string"
+          },
+          "EntityID": {
+            "type": "string"
+          }
+        }
+      },
+      "ClassDefinition2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "EquipmentDescription": {
+            "type": "string"
+          },
+          "ParentClassId": {},
+          "AvatarUrl": {
+            "type": "string"
+          },
+          "LargeAvatarUrl": {
+            "type": "string"
+          },
+          "PortraitAvatarUrl": {
+            "type": "string"
+          },
+          "MoreDetailsUrl": {
+            "type": "string"
+          },
+          "SpellCastingAbilityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SourceIds": {
+            "type": "array",
+            "items": {}
+          },
+          "Sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source2"
+            }
+          },
+          "HitDice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ClassFeatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClassFeature2"
+            }
+          },
+          "ClassFeatureDefinitions": {},
+          "WealthDice": {
+            "$ref": "#/components/schemas/WealthDice2"
+          },
+          "CanCastSpells": {
+            "type": "boolean"
+          },
+          "KnowsAllSpells": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "SpellPrepareType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SpellContainerName": {},
+          "SourceId": {},
+          "SourcePageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SubclassDefinition": {
+            "$ref": "#/components/schemas/ClassDefinition2"
+          },
+          "IsHomebrew": {
+            "type": "boolean"
+          },
+          "PrimaryAbilities": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "SpellRules": {
+            "$ref": "#/components/schemas/SpellRules2"
+          },
+          "Prerequisites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Prerequisite2"
+            }
+          }
+        }
+      },
+      "ClassFeature2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Prerequisite": {},
+          "Description": {
+            "type": "string"
+          },
+          "RequiredLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DisplayOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/ClassFeatureDefinition2"
+          },
+          "LevelScale": {
+            "$ref": "#/components/schemas/LevelScale2"
+          }
+        }
+      },
+      "Class2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsStartingClass": {
+            "type": "boolean"
+          },
+          "HitDiceUsed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DefinitionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SubclassDefinitionId": {},
+          "Definition": {
+            "$ref": "#/components/schemas/ClassDefinition2"
+          },
+          "SubclassDefinition": {
+            "$ref": "#/components/schemas/ClassDefinition2"
+          },
+          "ClassFeatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClassFeature2"
+            }
+          }
+        }
+      },
+      "Choices2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Race": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice2"
+            }
+          },
+          "Class": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice2"
+            }
+          },
+          "Background": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice2"
+            }
+          },
+          "Item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice2"
+            }
+          },
+          "Feat": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice2"
+            }
+          },
+          "ChoiceDefinitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Choice2"
+            }
+          }
+        }
+      },
+      "Choice2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Id": {
+            "type": "string"
+          },
+          "ParentChoiceId": {
+            "type": "string"
+          },
+          "Type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SubType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "OptionValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Label": {
+            "type": "string"
+          },
+          "IsOptional": {
+            "type": "boolean"
+          },
+          "IsInfinite": {
+            "type": "boolean"
+          },
+          "DefaultSubtypes": {
+            "type": "array",
+            "items": {}
+          },
+          "DisplayOrder": {},
+          "Options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChoiceOption2"
+            }
+          },
+          "OptionIds": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      },
+      "ChoiceOption2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Label": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      },
+      "CharacterValue2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "TypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Value": {
+            "type": "string"
+          },
+          "Notes": {},
+          "ValueId": {
+            "type": "string"
+          },
+          "ValueTypeId": {
+            "type": "string"
+          },
+          "ContextId": {},
+          "ContextTypeId": {}
+        }
+      },
+      "CharacterResponse2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Success": {
+            "type": "boolean"
+          },
+          "Message": {
+            "type": "string"
+          },
+          "Data": {
+            "$ref": "#/components/schemas/Character2"
+          },
+          "Pagination": {}
+        }
+      },
+      "Character2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "UserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ReadonlyUrl": {
+            "type": "string"
+          },
+          "AvatarUrl": {
+            "type": "string"
+          },
+          "FrameAvatarUrl": {
+            "type": "string"
+          },
+          "BackdropAvatarUrl": {
+            "type": "string"
+          },
+          "SmallBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "LargeBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "ThumbnailBackdropAvatarUrl": {
+            "type": "string"
+          },
+          "DefaultBackdrop": {
+            "$ref": "#/components/schemas/DefaultBackdrop2"
+          },
+          "AvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "FrameAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "BackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SmallBackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LargeBackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ThumbnailBackdropAvatarId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ThemeColorId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ThemeColor": {
+            "$ref": "#/components/schemas/ThemeColor2"
+          },
+          "Decorations": {
+            "$ref": "#/components/schemas/Decorations2"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "SocialName": {},
+          "Gender": {
+            "type": "string"
+          },
+          "Faith": {
+            "type": "string"
+          },
+          "Age": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Hair": {
+            "type": "string"
+          },
+          "Eyes": {
+            "type": "string"
+          },
+          "Skin": {
+            "type": "string"
+          },
+          "Height": {
+            "type": "string"
+          },
+          "Weight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Inspiration": {
+            "type": "boolean"
+          },
+          "BaseHitPoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BonusHitPoints": {},
+          "OverrideHitPoints": {},
+          "RemovedHitPoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TemporaryHitPoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CurrentXp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AlignmentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LifestyleId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Stats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Stat2"
+            }
+          },
+          "BonusStats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OptionalStat2"
+            }
+          },
+          "OverrideStats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OptionalStat2"
+            }
+          },
+          "Background": {
+            "$ref": "#/components/schemas/Background2"
+          },
+          "Race": {
+            "$ref": "#/components/schemas/Race2"
+          },
+          "RaceDefinitionId": {},
+          "RaceDefinitionTypeId": {},
+          "Notes": {
+            "$ref": "#/components/schemas/Notes2"
+          },
+          "Traits": {
+            "$ref": "#/components/schemas/Traits2"
+          },
+          "Preferences": {
+            "$ref": "#/components/schemas/Preferences2"
+          },
+          "Configuration": {
+            "$ref": "#/components/schemas/Configuration2"
+          },
+          "Lifestyle": {},
+          "Inventory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Inventory2"
+            }
+          },
+          "Currencies": {
+            "$ref": "#/components/schemas/Currencies2"
+          },
+          "Classes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Class2"
+            }
+          },
+          "Feats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Feat2"
+            }
+          },
+          "CustomDefenseAdjustments": {
+            "type": "array",
+            "items": {}
+          },
+          "CustomSenses": {
+            "type": "array",
+            "items": {}
+          },
+          "CustomSpeeds": {
+            "type": "array",
+            "items": {}
+          },
+          "CustomProficiencies": {
+            "type": "array",
+            "items": {}
+          },
+          "SpellDefenses": {},
+          "CustomActions": {
+            "type": "array",
+            "items": {}
+          },
+          "CharacterValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CharacterValue2"
+            }
+          },
+          "Conditions": {
+            "type": "array",
+            "items": {}
+          },
+          "DeathSaves": {
+            "$ref": "#/components/schemas/DeathSaves2"
+          },
+          "AdjustmentXp": {},
+          "SpellSlots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpellSlot2"
+            }
+          },
+          "PactMagic": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpellSlot2"
+            }
+          },
+          "ActiveSourceCategories": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "Spells": {
+            "$ref": "#/components/schemas/Spells2"
+          },
+          "Options": {
+            "$ref": "#/components/schemas/PlayerOptions2"
+          },
+          "Choices": {
+            "$ref": "#/components/schemas/Choices2"
+          },
+          "Actions": {
+            "$ref": "#/components/schemas/Actions2"
+          },
+          "Modifiers": {
+            "$ref": "#/components/schemas/PlayerModifiers2"
+          },
+          "ClassSpells": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClassSpell2"
+            }
+          },
+          "CustomItems": {
+            "type": "array",
+            "items": {}
+          },
+          "Campaign": {
+            "$ref": "#/components/schemas/Campaign2"
+          },
+          "Creatures": {
+            "type": "array",
+            "items": {}
+          },
+          "OptionalOrigins": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OptionalOrigin2"
+            }
+          },
+          "OptionalClassFeatures": {
+            "type": "array",
+            "items": {}
+          },
+          "DateModified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ProvidedFrom": {
+            "type": "string"
+          }
+        }
+      },
+      "Background2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "HasCustomBackground": {
+            "type": "boolean"
+          },
+          "Definition": {
+            "$ref": "#/components/schemas/BackgroundDefinition2"
+          },
+          "DefinitionId": {},
+          "CustomBackground": {
+            "$ref": "#/components/schemas/CustomBackground2"
+          }
+        }
+      },
+      "Actions2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Race": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action2"
+            }
+          },
+          "Class": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action2"
+            }
+          },
+          "Background": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action2"
+            }
+          },
+          "Item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action2"
+            }
+          },
+          "Feat": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action2"
+            }
+          }
+        }
+      },
+      "Action2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ComponentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ComponentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Id": {
+            "type": "string"
+          },
+          "EntityTypeId": {
+            "type": "string"
+          },
+          "LimitedUse": {
+            "$ref": "#/components/schemas/LimitedUse2"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Snippet": {
+            "type": "string"
+          },
+          "AbilityModifierStatId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "OnMissDescription": {
+            "type": "string"
+          },
+          "SaveFailDescription": {
+            "type": "string"
+          },
+          "SaveSuccessDescription": {
+            "type": "string"
+          },
+          "SaveStatId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "FixedSaveDc": {},
+          "AttackTypeRange": {},
+          "ActionType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AttackSubtype": {},
+          "Dice": {
+            "$ref": "#/components/schemas/Dice2"
+          },
+          "Value": {},
+          "DamageTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "IsMartialArts": {
+            "type": "boolean"
+          },
+          "IsProficient": {
+            "type": "boolean"
+          },
+          "SpellRangeType": {},
+          "DisplayAsAttack": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Range": {
+            "$ref": "#/components/schemas/Range2"
+          },
+          "Activation": {
+            "$ref": "#/components/schemas/Activation2"
+          },
+          "NumberOfTargets": {},
+          "FixedToHit": {},
+          "Ammunition": {}
+        }
+      },
+      "Campaign2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Link": {
+            "type": "string"
+          },
+          "PublicNotes": {
+            "type": "string"
+          },
+          "DmUserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DmUsername": {
+            "type": "string"
+          },
+          "Characters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Character2"
+            }
+          }
+        }
+      },
+      "CampaignCharacter2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "UserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Username": {
+            "type": "string"
+          },
+          "CharacterId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CharacterName": {
+            "type": "string"
+          },
+          "CharacterUrl": {
+            "type": "string"
+          },
+          "AvatarUrl": {
+            "type": "string"
+          },
+          "PrivacyType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CampaignId": {},
+          "IsAssigned": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

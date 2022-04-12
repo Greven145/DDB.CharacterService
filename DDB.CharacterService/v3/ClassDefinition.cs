@@ -1,0 +1,31 @@
+﻿namespace DDB.CharacterService.v3;
+
+public record ClassDefinition(
+    int Id,
+    string Name,
+    string Description,
+    string EquipmentDescription,
+    object ParentClassId,
+    string AvatarUrl,
+    string LargeAvatarUrl,
+    string PortraitAvatarUrl,
+    string MoreDetailsUrl,
+    int? SpellCastingAbilityId,
+    IReadOnlyList<object> SourceIds,
+    IReadOnlyList<Source> Sources,
+    int HitDice,
+    IReadOnlyList<ClassFeature> ClassFeatures,
+    object ClassFeatureDefinitions,
+    WealthDice WealthDice,
+    bool CanCastSpells,
+    bool? KnowsAllSpells,
+    int? SpellPrepareType,
+    object SpellContainerName,
+    object SourceId,
+    int? SourcePageNumber,
+    ClassDefinition SubclassDefinition,
+    bool IsHomebrew,
+    IReadOnlyList<int> PrimaryAbilities,
+    SpellRules SpellRules,
+    IReadOnlyList<Prerequisite> Prerequisites
+);
